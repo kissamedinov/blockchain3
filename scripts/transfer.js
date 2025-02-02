@@ -2,13 +2,13 @@ const hre = require("hardhat");
 
 async function main() {
     const [owner] = await hre.ethers.getSigners();
-    const Token = await hre.ethers.getContractFactory("AstanaItUniversity_SE2314_SAB");
-    const token = await Token.attach("0xA7dB21F5c39E8e4F7bBf6C3a4959A28e8C7e992F"); 
+    const Token = await hre.ethers.getContractFactory("AstanaItUniversity_SE2314");
+    const token = await Token.attach("0x824E23428e5C3b2c46360b0A4DAfaCf36A0BdCA2"); // Адрес развернутого контракта
 
-    const recipient = "0x7C3Fb91E23Ae417c59F78d6a300b2c4829BfA47C"; 
+    const recipient = "0x5D2Ac79D50e3677557788b600014f22929AC8ef8"; // Замените на адрес получателя
     const amount = hre.ethers.utils.parseUnits("100", 18); 
 
-    // transaction
+
     const tx = await token.transfer(recipient, amount);
     await tx.wait();
 
